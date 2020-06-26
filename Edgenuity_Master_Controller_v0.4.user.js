@@ -2,7 +2,7 @@
 // @name         Edgenuity Master Controller v0.4
 // @namespace    http://tampermonkey.net/
 // @version      0.4
-// @description  Edgenuity is killing us. So someone made an automatic next clicker, which was given major improvements by Hmelck and further improved by other members of the (now shut down) subreddit. It was then update to 0.4, and moved on Github by XANADryden This is the best and most current version to survive. VIVA LA RESISTANCE. 
+// @description  Edgenuity is killing us. So someone made an automatic next clicker, which was given major improvements by Hmelck and further improved by other members of the (now shut down) subreddit. It was then update to 0.4, and moved on Github by XANADryden. This is the best and most current version to survive. VIVA LA RESISTANCE. 
 // @author       Hemlck and XANADryden with contributions to this project from: /u/Mrynot88 , /u/Turtlemower.
 // @match        *://*.core.learn.edgenuity.com/*
 // @grant        none
