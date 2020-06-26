@@ -68,7 +68,7 @@ Built on top of the "edgenuity next clicker" which can be found at https://greas
 
 This is open and is available for the public as long as it is not sold in any way or form, even if modified.  
 
-Any questions or any contact about the original program can be sent to joseph.tortorelli5@gmail.com or you can contact me on reddit with the username /u/hemlck
+Any questions or any contact about the original program can be sent to joseph.tortorelli5@gmail.com or you can contact them on reddit with the username /u/hemlck
 Any bugs or issues should go to https://github.com/XANADryden/Edgenuity-Master-Controller/issues
 Any questions or any contact about the current version should go to dryden@bonnerclan.com
 --- Program Info ---
