@@ -42,7 +42,7 @@ var prevent_inactive = true;
 // Description: This will prevent inactivity emails and automatic logoff.  The code for this part of the script was created by XANADryden.
 // Bugs:
 //
-// Currently, there are no bugs reported!
+// Doesn't yet work, TODO: Change element
 
 var e;
 
@@ -69,7 +69,8 @@ Built on top of the "edgenuity next clicker" which can be found at https://greas
 This is open and is available for the public as long as it is not sold in any way or form, even if modified.  
 
 Any questions or any contact about the original program can be sent to joseph.tortorelli5@gmail.com or you can contact me on reddit with the username /u/hemlck
-Any other questions or contact should go to the Issues section
+Any bugs or issues should go to https://github.com/XANADryden/Edgenuity-Master-Controller/issues
+Any questions or any contact about the current version should go to dryden@bonnerclan.com
 --- Program Info ---
 variable "pageload" is set to an interval every 1 second (1000ms)
 
