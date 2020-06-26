@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name         Edgenuity Master Controller v0.3
+// @name         Edgenuity Master Controller v0.4
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Edgenuity is killing us. So someone made an automatic next clicker, which was given major improvements by Hmelck and further improved by other members of the (now shut down) subreddit This is the best and most current version to survive. VIVA LA RESISTANCE. 
-// @author       Hemlck with contributions to this project from: /u/Mrynot88 , /u/Turtlemower.
+// @author       Hemlck and XANADryden with contributions to this project from: /u/Mrynot88 , /u/Turtlemower.
 // @match        *://*.core.learn.edgenuity.com/*
 // @grant        none
 // ==/UserScript==
 
 
-// If you want to look at more things like this, go to our subreddit at reddit.com/r/edgenuity.
+// If you want to look at more things like this, go to the subreddit at reddit.com/r/edgenuity.
 
 
 
@@ -32,7 +32,14 @@ var is_auto_clicking = true;
 
 var autodefi = true;
 // Default = true (If problems occur, try turning this off by replacing true with false)
-// Description: This will fill out textboxes for Vocabulary automatically using an exploit found by /u/Turtlemower.  The code for this part of the script was created by /u/Mrynot88 and has been greatly appreciated.
+// Description: This will fill out textboxes for Vocabulary automatically using a method found by /u/Turtlemower.  The code for this part of the script was created by /u/Mrynot88 and has been greatly appreciated.
+// Bugs:
+//
+// Currently, there are no bugs reported!
+
+var prevent_inactive = true;
+// Default = true (If problems occur, try turning this off by replacing true with false)
+// Description: This will prevent inactivity emails and automatic logoff.  The code for this part of the script was created by XANADryden.
 // Bugs:
 //
 // Currently, there are no bugs reported!
@@ -57,11 +64,12 @@ function triggerEvent(el, type) {
     'use strict';
 /*
 ----- Developer Info -----
-Built on top of the "edgenuity next clicker" which can be found at https://greasyfork.org/en/scripts/19842-edgenuity-next-clicker
+Built on top of the "edgenuity next clicker" which can be found at https://greasyfork.org/en/scripts/19842-edgenuity-next-clicker, and https://greasyfork.org/en/scripts/395567-edgenuity-master-controller-v0-3/code
 
-This is open to anyone and does not have any rights.  It is available for the public as long as it is not sold in any way or form (as well as if it is modified).
+This is open and is available for the public as long as it is not sold in any way or form, even if modified.  
 
-Any questions or any contact about this program can be sent to joseph.tortorelli5@gmail.com or you can contact me on reddit with the username /u/hemlck
+Any questions or any contact about the original program can be sent to joseph.tortorelli5@gmail.com or you can contact me on reddit with the username /u/hemlck
+Any other questions or contact should go to the Issues section
 --- Program Info ---
 variable "pageload" is set to an interval every 1 second (1000ms)
 
@@ -71,9 +79,11 @@ variable "nextactivity" and "nextactivity_disabled" are for the next button on t
 
 variable "alreadyPlayedCheck" is specific to the code for the auto-completion of the vocab.
 
+variable "no_inactive" is set to an interval every 10 seconds (10000ms)
+
 variable current_page is unused as of right now because of a bug
 */
-    var pageload, nextclicker, nextslide_button, nextactivity, nextactivity_disabled;
+    var pageload, nextclicker, nextslide_button, nextactivity, nextactivity_disabled, no_inactive;
     var current_frame;
     var current_frame_id;
     var alreadyPlayedCheck;
@@ -97,6 +107,9 @@ variable current_page is unused as of right now because of a bug
             if (nextactivity && !nextactivity_disabled) {
                 nextactivity.click();
                 clearInterval(pageload);
+                if (prevent_inactive) {
+                    clearInterval(no_inactive);
+                }
                 setTimeout(loadpage, 1000);
             }
             document.querySelector('iframe').contentWindow.API.E2020.freeMovement = true
@@ -116,6 +129,9 @@ variable current_page is unused as of right now because of a bug
                     }, 500);
                 }, 500);
                 clearInterval(pageload);
+                if (prevent_inactive) {
+                    clearInterval(no_inactive);
+                }
             }
         }, 1000);
     }
@@ -140,6 +156,11 @@ variable current_page is unused as of right now because of a bug
                     nextButton.click();
                 }
             },2000);
+    }
+    if (prevent_inactive) {
+        no_inactive = setInterval(function () {
+            document.body.click()
+        },10000);
     }
        //}
     }
