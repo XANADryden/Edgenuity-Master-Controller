@@ -160,7 +160,8 @@ variable current_page is unused as of right now because of a bug
     }
     if (prevent_inactive) {
         no_inactive = setInterval(function () {
-            document.body.click()
+            document.body.click();
+            //nextactivity_disabled = document.getElementsByClassName("footnav goRight disabled")[0];
         },10000);
     }
        //}
